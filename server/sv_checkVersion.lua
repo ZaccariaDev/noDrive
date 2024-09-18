@@ -14,6 +14,21 @@ local function compareVersions(v1, v2)
     return 0
 end
 
+local function printLogo()
+    print([[^4
+-------------------------------------------------------------------------------------------
+--         __    __  _______                        __      __                           --
+--         /  |  /  |/       \                      /  |    /  |                         --
+--         $$ |  $$ |$$$$$$$  | ______    ______   _$$ |_   $$/   _______   ______       --
+--         $$  \/$$/ $$ |__$$ |/      \  /      \ / $$   |  /  | /       | /      \      --
+--          $$  $$<  $$    $$//$$$$$$  |/$$$$$$  |$$$$$$/   $$ |/$$$$$$$/ /$$$$$$  |     --
+--           $$$$  \ $$$$$$$/ $$    $$ |$$ |  $$/   $$ | __ $$ |$$      \ $$    $$ |     --
+--          $$ /$$  |$$ |     $$$$$$$$/ $$ |        $$ |/  |$$ | $$$$$$  |$$$$$$$$/      --
+--         $$ |  $$ |$$ |     $$       |$$ |        $$  $$/ $$ |/     $$/ $$       |     --
+--         $$/   $$/ $$/       $$$$$$$/ $$/          $$$$/  $$/ $$$$$$$/   $$$$$$$/      --
+-------------------------------------------------------------------------------------------^0]])
+end
+
 local function checkVersion()
     PerformHttpRequest('https://raw.githubusercontent.com/ZaccariaDev/noDrive/main/VERSION', function(err, serverVersion, headers)
         if err == 200 then
@@ -24,10 +39,12 @@ local function checkVersion()
             if parsedServerVersion and parsedCurrentVersion then
                 local compResult = compareVersions(parsedServerVersion, parsedCurrentVersion)
                 if compResult > 0 then
-                    print('^1[' .. resourceName .. '] Une nouvelle version est disponible !^0')
-                    print('^1[' .. resourceName .. '] Version actuelle : ' .. currentVersion .. '^0')
-                    print('^1[' .. resourceName .. '] Nouvelle version : ' .. serverVersion .. '^0')
-                    print('^1[' .. resourceName .. '] Veuillez télécharger la dernière version sur : https://github.com/ZaccariaDev/noDrive^0')
+                    printLogo()
+                    print('^3[' .. resourceName .. '] ^1UNE NOUVELLE VERSION EST DISPONIBLE !^0')
+                    print('^3[' .. resourceName .. '] ^1Version actuelle : ^5' .. currentVersion .. '^0')
+                    print('^3[' .. resourceName .. '] ^1Nouvelle version : ^5' .. serverVersion .. '^0')
+                    print('^3[' .. resourceName .. '] ^1Veuillez télécharger la dernière version sur : ^5https://github.com/ZaccariaDev/noDrive^0')
+                    print('^3[' .. resourceName .. '] ^1MISE À JOUR RECOMMANDÉE !^0')
                 else
                     print('^2[' .. resourceName .. '] La version est à jour.^0')
                 end
@@ -40,4 +57,5 @@ local function checkVersion()
     end, 'GET')
 end
 
+-- Vérification de la version au démarrage du mod
 checkVersion()
