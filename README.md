@@ -17,7 +17,7 @@ noDrive is a FiveM mod that restricts access to service vehicles based on the pl
 3. Add `ensure noDrive` to your `server.cfg` file
 
 ### Configuration
-Modify the `sv_config.lua` file to define the allowed vehicles for each job:
+Modify the `server/sv_config.lua` file to define the allowed vehicles for each job:
 
 ```lua
 Config.JobVehicles = {
@@ -67,7 +67,7 @@ noDrive est un mod pour FiveM qui restreint l'accès aux véhicules de service e
 3. Ajoutez `ensure noDrive` à votre fichier `server.cfg`
 
 ### Configuration
-Modifiez le fichier `sv_config.lua` pour définir les véhicules autorisés pour chaque métier :
+Modifiez le fichier `server/sv_config.lua` pour définir les véhicules autorisés pour chaque métier :
 
 ```lua
 Config.JobVehicles = {
@@ -117,7 +117,7 @@ noDrive è una mod per FiveM che limita l'accesso ai veicoli di servizio in base
 3. Aggiungi `ensure noDrive` al tuo file `server.cfg`
 
 ### Configurazione
-Modifica il file `sv_config.lua` per definire i veicoli consentiti per ogni lavoro:
+Modifica il file `server/sv_config.lua` per definire i veicoli consentiti per ogni lavoro:
 
 ```lua
 Config.JobVehicles = {
